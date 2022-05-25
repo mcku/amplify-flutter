@@ -7,12 +7,14 @@ environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
+  ansicolor: ^2.0.1
   async: ^2.8.2
   aws_common: ^0.1.0
   aws_signature_v4: ^0.1.0
   collection: ^1.15.0
   intl: ^0.17.0
   json_annotation: ^4.4.0
+  logging: ^1.0.2
   meta: ^1.7.0
   uuid: ^3.0.1
 
