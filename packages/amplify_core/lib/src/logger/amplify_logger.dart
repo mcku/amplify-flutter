@@ -60,27 +60,27 @@ class AmplifyLogger {
 
   LogLevel get logLevel => _logger.level.logLevel;
 
-  /// Log a message with a log level of [Level.FINER].
+  /// Log a message with level [LogLevel.verbose]
   void verbose(String message) {
     _logger.finer(message);
   }
 
-  /// Log a message with a log level of [Level.FINE].
+  /// Log a message with level [LogLevel.debug]
   void debug(String message) {
     _logger.fine(message);
   }
 
-  /// Log a message with a log level of [Level.INFO].
+  /// Log a message with level [LogLevel.info]
   void info(String message) {
     _logger.info(message);
   }
 
-  /// Log a message with a log level of [Level.WARNING].
+  /// Log a message with level [LogLevel.warn]
   void warn(String message) {
     _logger.warning(message);
   }
 
-  /// Log a message with a log level of [Level.SEVERE].
+  /// Log a message with level [LogLevel.error]
   void error(String message, [Object? error, StackTrace? stackTrace]) {
     _logger.severe(message, error, stackTrace);
   }

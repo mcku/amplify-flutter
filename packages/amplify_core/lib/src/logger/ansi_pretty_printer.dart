@@ -35,7 +35,7 @@ class AnsiPrettyPrinter implements AmplifyLoggerPlugin {
 
     final namespace = record.loggerName == AmplifyLogger.loggerNamespace
         ? ''
-        : record.loggerName.split('.')[1];
+        : record.loggerName.split('.')[2];
     if (namespace.isNotEmpty) {
       buffer.write(_formatLogNamespace(namespace));
     }

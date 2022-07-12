@@ -26,6 +26,7 @@ export 'src/amplify_class.dart';
 /// Categories
 export 'src/category/amplify_auth_category.dart';
 export 'src/category/amplify_categories.dart';
+
 // Config
 export 'src/config/amplify_config.dart';
 export 'src/config/amplify_plugin_config.dart' hide UnknownPluginConfigFactory;

@@ -17,6 +17,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:amplify_core/amplify_core.dart';
+import 'package:amplify_core/src/logger/simple_printer.dart';
 import 'package:meta/meta.dart';
 
 import 'amplify_class_impl.dart';
@@ -103,7 +104,7 @@ abstract class AmplifyClass {
       );
     }
 
-    AmplifyLogger().registerPlugin(AnsiPrettyPrinter());
+    AmplifyLogger().registerPlugin(SimplePrinter());
 
     await configurePlatform(configuration);
     _configCompleter.complete(amplifyConfig);
