@@ -17,6 +17,7 @@ import 'package:amplify_core/src/logger/level_extension.dart';
 import 'package:logging/logging.dart';
 
 import '../category/amplify_categories.dart';
+import 'log_entry.dart';
 import 'log_level.dart';
 
 class AmplifyLogger {
@@ -38,7 +39,7 @@ class AmplifyLogger {
 
   void registerPlugin(AmplifyLoggerPlugin plugin) {
     unregisterPlugin(plugin);
-    _subscriptions[plugin] = _logger.onRecord.listen(plugin.handleLogRecord);
+    _subscriptions[plugin] = _logger.onRecord.listen(plugin._handleLogRecord);
   }
 
   void unregisterPlugin(AmplifyLoggerPlugin plugin) {
@@ -87,5 +88,8 @@ class AmplifyLogger {
 }
 
 abstract class AmplifyLoggerPlugin {
-  void handleLogRecord(LogRecord record);
+  void _handleLogRecord(LogRecord record) =>
+      handleLogEntry(LogEntry.fromLogRecord(record));
+
+  void handleLogEntry(LogEntry logEntry);
 }

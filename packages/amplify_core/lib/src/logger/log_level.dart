@@ -52,15 +52,18 @@ enum LogLevel implements Comparable<LogLevel> {
       case LogLevel.verbose:
         return Level.FINEST;
       case LogLevel.debug:
-        return Level.CONFIG;
+        return Level.FINE;
       case LogLevel.info:
-        return Level.INFO;
+        return Level.CONFIG;
       case LogLevel.warn:
         return Level.WARNING;
       case LogLevel.error:
-        return Level.SHOUT;
+        return Level.SEVERE;
       case LogLevel.none:
         return Level.OFF;
     }
   }
+
+  @override
+  String toString() => name;
 }

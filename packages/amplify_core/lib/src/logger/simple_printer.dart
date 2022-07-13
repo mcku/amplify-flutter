@@ -15,29 +15,34 @@
 import 'package:amplify_core/amplify_core.dart';
 import 'package:logging/logging.dart';
 
-class SimplePrinter implements AmplifyLoggerPlugin {
+import 'log_entry.dart';
+
+class SimplePrinter extends AmplifyLoggerPlugin {
   SimplePrinter();
 
   @override
-  void handleLogRecord(LogRecord record) {
+  void handleLogEntry(LogEntry logEntry) {
     final buffer = StringBuffer();
 
     // Log Level
-    buffer.write(record.level.toString());
+    buffer.write(logEntry.level.toString().toUpperCase().padRight(5));
 
     // Log Namespace
-    buffer.write(' ');
+    buffer.write(' | ');
 
-    final namespace = record.loggerName == AmplifyLogger.loggerNamespace
-        ? ''
-        : record.loggerName.split('.')[2];
+    var namespace = logEntry.loggerName;
+    if (namespace.contains(AmplifyLogger.loggerNamespace)) {
+      namespace = namespace.substring(AmplifyLogger.loggerNamespace.length);
+
+      if (namespace.startsWith('.')) namespace = namespace.substring(1);
+    }
     if (namespace.isNotEmpty) {
-      buffer.write(namespace);
+      buffer.write(namespace.padRight(10));
+      buffer.write(' | ');
     }
 
     // Log Message
-    buffer.write(' ');
-    buffer.write(record.message);
+    buffer.write(logEntry.message);
 
     safePrint(buffer.toString());
   }

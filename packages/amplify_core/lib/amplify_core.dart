@@ -36,14 +36,16 @@ export 'src/config/api/api_config.dart';
 export 'src/config/auth/auth_config.dart';
 export 'src/config/config_map.dart';
 export 'src/config/storage/storage_config.dart';
+
 // Hub
 export 'src/hub/amplify_hub.dart';
 export 'src/hub/hub_channel.dart';
 export 'src/hub/hub_event.dart';
+
 // Logger
 export 'src/logger/amplify_logger.dart';
-export 'src/logger/ansi_pretty_printer.dart';
 export 'src/logger/log_level.dart';
+export 'src/logger/simple_printer.dart';
 
 /// Plugin
 export 'src/plugin/amplify_analytics_plugin_interface.dart';
@@ -52,6 +54,7 @@ export 'src/plugin/amplify_auth_plugin_interface.dart';
 export 'src/plugin/amplify_datastore_plugin_interface.dart';
 export 'src/plugin/amplify_plugin_interface.dart';
 export 'src/plugin/amplify_storage_plugin_interface.dart';
+
 // State Machine
 export 'src/state_machine/dependency_manager.dart';
 export 'src/state_machine/event.dart';
@@ -101,6 +104,7 @@ export 'src/types/temporal/temporal_date.dart';
 export 'src/types/temporal/temporal_datetime.dart';
 export 'src/types/temporal/temporal_time.dart';
 export 'src/types/temporal/temporal_timestamp.dart';
+
 // Util
 export 'src/util/parsers.dart';
 export 'src/util/serializable.dart';
