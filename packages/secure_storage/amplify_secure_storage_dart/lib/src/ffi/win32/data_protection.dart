@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:amplify_secure_storage_dart/src/ffi/win32/data_protection.bindings.dart';
 import 'package:amplify_secure_storage_dart/src/ffi/win32/utils.dart';
 import 'package:ffi/ffi.dart';
-import 'package:win32/win32.dart';
+import 'package:win32/win32.dart' as win32;
 
 /// Encrypts the provided string as a [Uint8List].
 Uint8List encryptString(String value) {
@@ -36,8 +36,8 @@ Uint8List encrypt(Uint8List list) {
       0, // default flag
       encryptedPtr,
     );
-    final errorCode = GetLastError();
-    if (errorCode != ERROR_SUCCESS) {
+    final errorCode = win32.GetLastError();
+    if (errorCode != win32.ERROR_SUCCESS) {
       throw getExceptionFromErrorCode(errorCode);
     }
     final encryptedBlob = encryptedPtr.ref;
@@ -62,8 +62,8 @@ Uint8List decrypt(Uint8List list) {
       0, // default flag
       unencryptedPtr,
     );
-    final errorCode = GetLastError();
-    if (errorCode != ERROR_SUCCESS) {
+    final errorCode = win32.GetLastError();
+    if (errorCode != win32.ERROR_SUCCESS) {
       throw getExceptionFromErrorCode(errorCode);
     }
     final unencryptedDataBlob = unencryptedPtr.ref;
